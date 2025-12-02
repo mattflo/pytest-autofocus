@@ -1,0 +1,15 @@
+version: "3"
+
+tasks:
+  clean:
+    cmds:
+      - rm -rf dist/ build/
+      - find . -type d -name "*.egg-info" -exec rm -rf {} + 2>/dev/null || true
+  build:
+    deps: [clean]
+    cmds:
+      - uv run python -m build
+  publish:
+    deps: [build]
+    cmds:
+      - uv run twine upload dist/*

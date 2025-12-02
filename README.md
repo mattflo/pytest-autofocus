@@ -23,7 +23,7 @@ def test_focused():
     pass
 ```
 
-Run with `--auto-focus` to run only focused tests:
+Run with `--auto-focus` to run only focused tests (if any exist), otherwise run all tests:
 
 ```bash
 pytest --auto-focus

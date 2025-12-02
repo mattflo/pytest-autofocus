@@ -1,6 +1,6 @@
 [project]
 name = "pytest-autofocus"
-version = "0.1.0"
+version = "0.1.2"
 description = "Auto-focus plugin: run only @pytest.mark.focus tests when --auto-focus is set"
 readme = "README.md"
 license = { text = "MIT" }
@@ -24,6 +24,11 @@ classifiers = [
     "Topic :: Software Development :: Testing",
 ]
 
+[project.urls]
+Homepage = "https://github.com/mattflo/pytest-autofocus"
+Repository = "https://github.com/mattflo/pytest-autofocus"
+Issues = "https://github.com/mattflo/pytest-autofocus/issues"
+
 [project.entry-points.pytest11]
 autofocus = "pytest_autofocus.plugin"
 
@@ -33,5 +38,7 @@ build-backend = "hatchling.build"
 
 [dependency-groups]
 dev = [
+    "build>=1.3.0",
     "pytest>=9.0.1",
+    "twine>=6.2.0",
 ]
