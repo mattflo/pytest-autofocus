@@ -1,0 +1,7 @@
+title: pytest-autofocus
+description: Focus on the tests that matter
+url: https://mattflo.github.io
+baseurl: /pytest-autofocus
+markdown: kramdown
+highlighter: rouge
+

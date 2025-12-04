@@ -82,3 +82,9 @@ Thumbs.db
 # uv
 uv.lock
 
+# Jekyll
+docs/vendor/
+docs/.bundle/
+docs/_site/
+docs/Gemfile.lock
+

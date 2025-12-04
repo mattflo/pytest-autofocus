@@ -1,0 +1,273 @@
+:root {
+    --bg: #faf9f7;
+    --text: #1a1a1a;
+    --text-muted: #6b6b6b;
+    --accent: #2563eb;
+    --code-bg: #1e1e1e;
+    --code-text: #d4d4d4;
+    --border: #e5e4e2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 18px;
+}
+
+body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 1.25rem 1.5rem;
+}
+
+header nav {
+    display: flex;
+    gap: 1rem;
+}
+
+header a {
+    color: var(--text-muted);
+    transition: color 0.15s;
+}
+
+header a:hover {
+    color: var(--text);
+    text-decoration: none;
+}
+
+main {
+    width: min(90%, 860px);
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+    flex: 1;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+.tagline {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+}
+
+.hero-code {
+    background: var(--code-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 3rem;
+    overflow-x: auto;
+}
+
+.hero-code pre {
+    margin: 0;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+}
+
+pre {
+    background: var(--code-bg);
+    color: var(--code-text);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+    margin: 1rem 0 1.5rem;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+}
+
+p code {
+    background: #e8e8e8;
+    color: var(--text);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+}
+
+/* VS Code Dark+ syntax highlighting */
+.highlight .c,
+.highlight .c1,
+.highlight .cm,
+.highlight .cs {
+    color: #6a9955;
+}
+
+.highlight .k,
+.highlight .kd,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .kt,
+.highlight .kc {
+    color: #569cd6;
+}
+
+.highlight .s,
+.highlight .s1,
+.highlight .s2,
+.highlight .sb,
+.highlight .sc,
+.highlight .sd,
+.highlight .se,
+.highlight .sh,
+.highlight .si,
+.highlight .sx,
+.highlight .sr,
+.highlight .ss {
+    color: #ce9178;
+}
+
+.highlight .m,
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .mo,
+.highlight .il {
+    color: #b5cea8;
+}
+
+.highlight .nf,
+.highlight .fm {
+    color: #dcdcaa;
+}
+
+.highlight .nc,
+.highlight .nn {
+    color: #4ec9b0;
+}
+
+.highlight .na,
+.highlight .nv,
+.highlight .vi,
+.highlight .vm {
+    color: #9cdcfe;
+}
+
+.highlight .nb {
+    color: #4ec9b0;
+}
+
+.highlight .nd {
+    color: #dcdcaa;
+}
+
+.highlight .ni,
+.highlight .ne,
+.highlight .no {
+    color: #4fc1ff;
+}
+
+.highlight .o,
+.highlight .ow {
+    color: #d4d4d4;
+}
+
+.highlight .p {
+    color: #d4d4d4;
+}
+
+.highlight .bp {
+    color: #9cdcfe;
+}
+
+.highlight .err {
+    color: #f44747;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.install {
+    background: var(--text);
+    color: var(--bg);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    margin: 2rem 0;
+    display: inline-block;
+}
+
+.video-placeholder {
+    display: none;
+    background: var(--code-bg);
+    border: 2px dashed var(--border);
+    border-radius: 8px;
+    padding: 3rem;
+    text-align: center;
+    color: var(--text-muted);
+    margin: 2rem 0;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+    html {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 2.25rem;
+    }
+
+    main {
+        padding: 2.5rem 1.25rem;
+    }
+}

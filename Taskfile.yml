@@ -1,6 +1,18 @@
 version: "3"
 
+vars:
+  VERSION:
+    sh: grep '^version = ' pyproject.toml | sed 's/version = "\(.*\)"/\1/'
+
 tasks:
+  bump:patch:
+    cmds:
+      - |
+        CURRENT_VERSION={{.VERSION}}
+        NEW_VERSION=$(echo $CURRENT_VERSION | awk -F. '{print $1 "." $2 "." $3 + 1}')
+        python3 -c "import re; f=open('pyproject.toml','r'); c=f.read(); f.close(); c=re.sub(r'^version = \".*\"', 'version = \"$NEW_VERSION\"', c, flags=re.MULTILINE); f=open('pyproject.toml','w'); f.write(c); f.close()"
+        python3 -c "import re; f=open('src/pytest_autofocus/__init__.py','r'); c=f.read(); f.close(); c=re.sub(r'^__version__ = \".*\"', '__version__ = \"$NEW_VERSION\"', c, flags=re.MULTILINE); f=open('src/pytest_autofocus/__init__.py','w'); f.write(c); f.close()"
+        echo "Bumped version from $CURRENT_VERSION to $NEW_VERSION"
   clean:
     cmds:
       - rm -rf dist/ build/
@@ -10,6 +22,10 @@ tasks:
     cmds:
       - uv run python -m build
   publish:
-    deps: [build]
+    deps: [bump:patch, build]
     cmds:
       - uv run twine upload dist/*
+  release:
+    cmds:
+      - git tag -a v{{.VERSION}} -m "Release v{{.VERSION}}"
+      - git push --follow-tags origin main
