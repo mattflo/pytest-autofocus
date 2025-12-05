@@ -16,7 +16,7 @@ You're iterating on a feature but it's not quite working yet. Your intuition say
 
 ## The solution
 
-In a perfect world, all you have to do is add `@pytest.mark.focus` to any test and click save. Move the decorator or add it to more tests. Remove when done and the full test suite runs again.
+In a perfect world, all you have to do is add `@pytest.mark.focus` to any test and save. Move the decorator or add it to more tests. Remove when done and the full test suite runs again.
 
 ```python
 @pytest.mark.focus
