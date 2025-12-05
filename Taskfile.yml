@@ -29,3 +29,7 @@ tasks:
     cmds:
       - git tag -a v{{.VERSION}} -m "Release v{{.VERSION}}"
       - git push --follow-tags origin main
+  gh-preview:
+    dir: docs
+    cmds:
+      - bundle exec jekyll serve

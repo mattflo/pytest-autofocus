@@ -23,12 +23,33 @@
             </a>
         </nav>
     </header>
+    <nav class="floating-nav" aria-label="Page navigation">
+        <a href="#the-problem" class="nav-item">The problem</a>
+        <a href="#the-solution" class="nav-item">The solution</a>
+        <a href="#but-ai" class="nav-item">But AI</a>
+        <a href="#install" class="nav-item">Install</a>
+        <a href="#usage" class="nav-item">Usage</a>
+    </nav>
     <main>
         {{ content }}
     </main>
     <footer>
         MIT License
     </footer>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                const navItem = document.querySelector(`.floating-nav a[href="#${id}"]`);
+                if (entry.isIntersecting) {
+                    document.querySelectorAll('.floating-nav a').forEach(a => a.classList.remove('active'));
+                    navItem?.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-100px 0px -66%' });
+
+        document.querySelectorAll('h2[id]').forEach(h2 => observer.observe(h2));
+    </script>
 </body>
 
 </html>

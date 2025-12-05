@@ -51,7 +51,7 @@ header a:hover {
 }
 
 main {
-    width: min(90%, 860px);
+    width: min(90%, 800px);
     margin: 0 auto;
     padding: 4rem 1.5rem;
     flex: 1;
@@ -256,6 +256,43 @@ footer {
     padding: 2rem;
     color: var(--text-muted);
     font-size: 0.85rem;
+}
+
+.floating-nav {
+    position: fixed;
+    left: 2rem;
+    top: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 200px;
+}
+
+.floating-nav .nav-item {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    padding: 0.25rem 0;
+    border-left: 2px solid transparent;
+    padding-left: 0.75rem;
+}
+
+.floating-nav .nav-item:hover {
+    color: var(--text);
+    border-left-color: var(--border);
+}
+
+.floating-nav .nav-item.active {
+    color: var(--accent);
+    border-left-color: var(--accent);
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .floating-nav {
+        display: none;
+    }
 }
 
 @media (max-width: 600px) {
